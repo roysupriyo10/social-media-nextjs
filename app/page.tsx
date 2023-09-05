@@ -9,16 +9,13 @@ export default function Home() {
       () => setCurrentTime(new Date().toLocaleString()),
       1000
     );
-
     return () => {
       clearInterval(interval);
     };
   }, [])
   return (
-    <>
-      <div className='flex justify-end'>
-        <h1 className="text-3xl" suppressHydrationWarning>{ currentTime }</h1>
-      </div>
-    </>
+    <div className='flex justify-center items-center p-6'>
+      <h1 className='text-xl text-slate-300 hover:text-slate-400'>{ new Date(currentTime).toLocaleString() }</h1>
+    </div>
   );
 }

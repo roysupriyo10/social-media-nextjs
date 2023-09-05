@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [currentTime, setCurrentTime] = useState(Date.now())
+  const [currentTime, setCurrentTime] = useState(new Date().toLocaleString())
   useEffect(() => {
     const interval = setInterval(
-      () => setCurrentTime(Date.now()),
+      () => setCurrentTime(new Date().toLocaleString()),
       1000
     );
 
@@ -16,7 +16,9 @@ export default function Home() {
   }, [])
   return (
     <>
-      <h1>{ new Date(currentTime).toLocaleString() }</h1>
+      <div className='flex justify-end'>
+        <h1 className="text-3xl" suppressHydrationWarning>{ currentTime }</h1>
+      </div>
     </>
   );
 }
